@@ -13,27 +13,37 @@ public class planner extends JFrame {
     private JButton addPerson;
     private JTextArea textAppointments;
     private JSpinner spinnerHour;
+    int theHour;
     private JSpinner spinnerMinute;
-public planner() {
-    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setContentPane(panelMain);
-    this.pack();
+    int theMin;
 
-    addPerson.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String name = textName.getText();
-            SpinnerNumberModel hourModel = new SpinnerNumberModel(0, 0, 23, 1);
-            spinnerHour = new JSpinner(hourModel);
-            int hour = (int) spinnerHour.getValue();
+    public planner() {
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setContentPane(panelMain);
+        createUIComponents();
 
-            textAppointments.setText(name +" at "+ hour);
-        }
-    });
-}
+        addPerson.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String name = textName.getText();
+                theHour = (int) spinnerHour.getValue();
+                theMin = (int) spinnerMinute.getValue();
+                textAppointments.setText(name + " at " + theHour + ":" + theMin);
+            }
+        });
+
+        this.pack();
+    }
 
     public static void main(String[] args) {
         JFrame frame = new planner();
         frame.setVisible(true);
     }
+
+    private void createUIComponents() {
+        SpinnerNumberModel spinnerHour = new SpinnerNumberModel(0, 0, 23, 1);
+        theHour = (int) spinnerHour.getValue();
+
+        SpinnerNumberModel spinnerMinute = new SpinnerNumberModel(0, 0, 59, 1);
+        theMin = (int) spinnerMinute.getValue();
+        }
 }
