@@ -20,7 +20,7 @@ public class planner extends JFrame {
         this.setContentPane(panelMain);
         this.pack();
     }
-
+//Testing Github
     public static void main(String[] args) {
         JFrame frame = new planner("Appointment planner");
         frame.setVisible(true);
