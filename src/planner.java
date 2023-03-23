@@ -12,13 +12,8 @@ public class planner extends JFrame {
     private JSpinner spinner2;
     private JTextArea textMessage;
     private JButton buttonAddNameDate;
-    private JTextArea textArea1;
-public planner() {
-    buttonAddNameDate.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
+    private JTextArea textAppointments;
+}
 
-        }
-    });
-}
-}
+
+
