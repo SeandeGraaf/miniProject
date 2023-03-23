@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class planner extends JFrame {
     private JPanel panelMain;
@@ -11,3 +13,12 @@ public class planner extends JFrame {
     private JTextArea textMessage;
     private JButton buttonAddNameDate;
     private JTextArea textArea1;
+public planner() {
+    buttonAddNameDate.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
+    });
+}
+}
