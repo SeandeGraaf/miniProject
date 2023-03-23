@@ -22,7 +22,7 @@ public class planner extends JFrame {
     }
 
     public static void main(String[] args) {
-        JFrame frame = new planner("Appoitnment planner");
+        JFrame frame = new planner("Appointment planner");
         frame.setVisible(true);
     }
 }
