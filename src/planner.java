@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -22,19 +23,21 @@ public class planner extends JFrame {
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(panelMain);
-        SpinnerNumberModel uurModel = new SpinnerNumberModel(0, 0, 23, 1);  //hier wordt grens voor uren gezet
-        SpinnerNumberModel minModel = new SpinnerNumberModel(0, 0, 59, 1);  //hier wordt grens voor minuten gezet
-        spinUur.setModel(uurModel);  //hier wordt spinUur gekoppeld aan de bovenstaande grens
-        spinMin.setModel(minModel);  //hier wordt spinMin gekoppeld aan de bovenstaande grens
+        panelMain.setPreferredSize(new Dimension(500, 500));
+        setResizable(false);  //hier wordt de grootte v/d panel vastgezet
+        SpinnerNumberModel uurModel = new SpinnerNumberModel(0, 0, 23, 1);  //hier worden de grenzen voor uren en minuten gezet
+        SpinnerNumberModel minModel = new SpinnerNumberModel(0, 0, 59, 1);  //
+        spinUur.setModel(uurModel);  //hier wordt spinUur en spinMingekoppeld aan de bovenstaande grens
+        spinMin.setModel(minModel);  //""
         spinMin.setModel(minModel);
         this.pack();
         appointments = new ArrayList<String>();  //Hier wordt de array geïnitieerd om de afspraken in op te slaan
 
-        buttonAddNameDate.addActionListener(new ActionListener() {  //Hier gaan we ervoor zorgen dat de knop "Maak afspraak" werkt en in de textAppointments de afsrpaak neerzet en in de textmessage "Afspraak gemaakt!"
+        buttonAddNameDate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String appointment = String.valueOf(textFieldNaam.getText());  // Hier wordt de waarde uit de textFieldNaam gepakt om deze in de array te zetten
-                int uur = (int) spinUur.getValue();  // hier boven en onder worden de waarden van de jspinners gepakt
+                int uur = (int) spinUur.getValue();
                 int minuut = (int) spinMin.getValue();
                 String newAppointment = String.format("%s om %02d:%02d", appointment, uur, minuut); // hier wordt een string gemaakt met de naam en tijd
                 if (appointments.contains(newAppointment)) { //hier wordt de bovenstaande string vergeleken met al bestaande strings in de array
@@ -42,7 +45,7 @@ public class planner extends JFrame {
                 } else {
                     appointments.add(newAppointment);  //bestaat de afspraak nog niet dan wordt deze hier toegevoegd aan de array
                     textAppointments.setText(String.join("\n", appointments));  //hier komt de afsrpaak in de textAppointment te voor schijn
-                    textMessage.setText("Afspraak gemaakt!");  //en hier de mededeling in textMessage
+                    textMessage.setText("Afspraak gemaakt!");
                 }
             }
         });
