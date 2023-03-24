@@ -26,7 +26,7 @@ public class planner extends JFrame {
         panelMain.setPreferredSize(new Dimension(500, 500));
         setResizable(false);  //hier wordt de grootte v/d panel vastgezet
         SpinnerNumberModel uurModel = new SpinnerNumberModel(0, 0, 23, 1);  //hier worden de grenzen voor uren en minuten gezet
-        SpinnerNumberModel minModel = new SpinnerNumberModel(0, 0, 59, 1);  //
+        SpinnerNumberModel minModel = new SpinnerNumberModel(0, 0, 59, 1);  //""
         spinUur.setModel(uurModel);  //hier wordt spinUur en spinMingekoppeld aan de bovenstaande grens
         spinMin.setModel(minModel);  //""
         spinMin.setModel(minModel);
