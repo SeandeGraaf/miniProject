@@ -19,12 +19,21 @@ public class planner extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(panelMain);
         this.pack();
+        buttonAddNameDate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String appointment = String.valueOf(textFieldNaam.getText());
+                textAppointments.setText(appointment);
+
+            }
+        });
     }
 //Testing Github
     public static void main(String[] args) {
         JFrame frame = new planner("Appointment planner");
         frame.setVisible(true);
     }
+
 }
 
 
