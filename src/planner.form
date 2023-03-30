@@ -28,7 +28,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-11574642"/>
+          <background color="-11361055"/>
           <text value="Button"/>
         </properties>
       </component>
