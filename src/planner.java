@@ -18,6 +18,7 @@ public class planner extends JFrame {
     private JButton buttonAddNameDate;
     private JTextArea textAppointments;
     private ArrayList<String> appointments;
+    private ArrayList<String> timeSlots;
 
     public planner(String title) {
         super(title);
@@ -31,23 +32,26 @@ public class planner extends JFrame {
         spinMin.setModel(minModel);  //""
         this.pack();
         appointments = new ArrayList<String>();  //hier wordt de array geïnitieerd om de afspraken in op te slaan
+        timeSlots = new ArrayList<String>();
 
         buttonAddNameDate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String appointment = String.valueOf(textFieldNaam.getText());  // hier wordt de waarde uit de textFieldNaam gepakt om deze in de array te zetten
                 int uur = (int) spinUur.getValue(); //hier wordt de tijden uit de spinners gehaald en naar hun respectievelijke int gezet
-                int minuut = (int) spinMin.getValue();
-                String newAppointment = String.format("%s om %02d:%02d", appointment, uur, minuut); // hier wordt een string gemaakt met de naam en tijd
-                if (appointments.contains(newAppointment)) { //hier wordt de boven staande string vergeleken met al bestaande strings in de array
+                int minuut = (int) spinMin.getValue();//  ""
+                String newTimeSlot = String.format("%02d:%02d", uur, minuut);//  String om de tijden tussen afspraken mee te vergelijken
+                if (timeSlots.contains(newTimeSlot)) { //hier wordt de boven staande string vergeleken met al bestaande strings in de array
                     textMessage.setText("Afspraak bestaat al!");  // als er al een afspraak is met dezelfde naam en tijd dan krijg je deze tekst in textMessage
                 } else {
+                    String newAppointment = String.format("%s om %02d:%02d", appointment, uur, minuut); // hier wordt een string gemaakt met de naam en tijd
                     appointments.add(newAppointment);  //bestaat de afspraak nog niet dan wordt deze hier toegevoegd aan de array
+                    timeSlots.add(newTimeSlot);
                     textAppointments.setText(String.join("\n", appointments));  //hier komt de afspraak in de textAppointment te voor schijn
                     textMessage.setText("Afspraak gemaakt!");
                     textFieldNaam.setText(""); //Resetten van de invoervelden.
-                    spinUur.setValue(0);
-                    spinMin.setValue(0);
+                    spinUur.setValue(0);//  ""
+                    spinMin.setValue(0);//  ""
                 }
             }
         });
