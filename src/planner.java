@@ -28,7 +28,7 @@ public class planner extends JFrame {
         setResizable(false);  //hier wordt de grootte v/d panel vastgezet
         SpinnerNumberModel uurModel = new SpinnerNumberModel(0, 0, 23, 1);  //hier worden de grenzen voor uren en minuten gezet
         SpinnerNumberModel minModel = new SpinnerNumberModel(0, 0, 59, 1);  //""
-        spinUur.setModel(uurModel);  //hier wordt spinUur en spinMin gekoppeld aan de bovenstaande grens
+        spinUur.setModel(uurModel);  //hier wordt spinUur en spinMin gekoppeld aan de grens hierboven
         spinMin.setModel(minModel);  //""
         this.pack();//  Om de frame de juiste grootte te geven voor de inhoud
         appointments = new ArrayList<String>();  //hier wordt de array begonnen om de afspraken in op te slaan
