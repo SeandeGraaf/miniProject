@@ -21,17 +21,17 @@ public class planner extends JFrame {
     private ArrayList<String> timeSlots;
 
     public planner(String title) {
-        super(title);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setContentPane(panelMain);
+        super(title);//  calls de title constructor uit de javax.swing.JFrame(titel vd frame)
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// stopt de applicatie als de frame wordt afgesloten
+        this.setContentPane(panelMain);// zorgt ervoor dat panelMain in de frame komt en vult (Content pane is het hoofdpaneel)
         panelMain.setPreferredSize(new Dimension(500, 500));
         setResizable(false);  //hier wordt de grootte v/d panel vastgezet
         SpinnerNumberModel uurModel = new SpinnerNumberModel(0, 0, 23, 1);  //hier worden de grenzen voor uren en minuten gezet
         SpinnerNumberModel minModel = new SpinnerNumberModel(0, 0, 59, 1);  //""
         spinUur.setModel(uurModel);  //hier wordt spinUur en spinMin gekoppeld aan de bovenstaande grens
         spinMin.setModel(minModel);  //""
-        this.pack();
-        appointments = new ArrayList<String>();  //hier wordt de array geïnitieerd om de afspraken in op te slaan
+        this.pack();//  Om de frame de juiste grootte te geven voor de inhoud
+        appointments = new ArrayList<String>();  //hier wordt de array begonnen om de afspraken in op te slaan
         timeSlots = new ArrayList<String>();
 
         buttonAddNameDate.addActionListener(new ActionListener() {
