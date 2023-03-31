@@ -22,8 +22,8 @@ public class planner extends JFrame {
 
     public planner(String title) {
         super(title);//  calls de title constructor uit de javax.swing.JFrame(titel vd frame)
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// stopt de applicatie als de frame wordt afgesloten
-        this.setContentPane(panelMain);// zorgt ervoor dat panelMain in de frame komt en vult (Content pane is het hoofdpaneel)
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// stopt de applicatie als het frame wordt afgesloten
+        this.setContentPane(panelMain);// zorgt ervoor dat panelMain in het frame komt en vult (Content pane is het hoofdpaneel)
         panelMain.setPreferredSize(new Dimension(500, 500));
         setResizable(false);  //hier wordt de grootte v/d panel vastgezet
         SpinnerNumberModel uurModel = new SpinnerNumberModel(0, 0, 23, 1);  //hier worden de grenzen voor uren en minuten gezet
@@ -58,7 +58,7 @@ public class planner extends JFrame {
     }
 
     public static void main(String[] args) {
-        JFrame frame = new planner("Appointment planner");  //geeft de frame van de app een titel
+        JFrame frame = new planner("Appointment planner");  //geeft het frame van de app een titel
         frame.setVisible(true);  //maakt de app zichtbaar
     }
 
